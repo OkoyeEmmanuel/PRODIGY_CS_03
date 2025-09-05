@@ -1,6 +1,5 @@
 import time
-global bPassword
-bPassword=False
+
 
 print("#############################################################################")
 print("Welcome to the Password Checker!")
@@ -64,7 +63,11 @@ else:
     print("* Your password does not contain any special characters.")
 
 print("Processing password review...")
-time.sleep(2)
+time.sleep(3)
 
-
-
+print("#############################################################################")
+if (check_password_length(password_input) and check_upper_and_lower(password_input) and check_digit(password_input) and check_special_character(password_input)):
+    print("Your password is strong and meets all the criteria!")
+else:
+    print("Your password does not meet all the criteria. Ensure it meets the guidelines above.")
+print("#############################################################################")
