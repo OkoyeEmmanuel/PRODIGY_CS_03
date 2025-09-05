@@ -27,6 +27,15 @@ def check_upper_and_lower(password):
     return upper and lower # returns true only if upper and lower are true
 
    
+def check_digit(password):
+    digit = any(c.isdigit() for c in password)
+    return digit   
+
+
+def check_special_character(password):
+    special_characters = "!@#$%^&*()-_=+[]{}|;:'\",.<>?/`~"
+    return any(c in special_characters for c in password)
+
 
 password_input = input("Enter your password:")
 print("Checking password...")
@@ -43,7 +52,19 @@ else:
     print("* Your password does not contain both uppercase and lowercase letters.")
 
 
+if check_digit(password_input) == True:
+    print("# Your password contains at least one digit.")
+else:
+    print("* Your password does not contain any digits.")
+
+
+if check_special_character(password_input) == True:
+    print("# Your password contains at least one special character.")   
+else:
+    print("* Your password does not contain any special characters.")
 
 print("Processing password review...")
 time.sleep(2)
+
+
 
