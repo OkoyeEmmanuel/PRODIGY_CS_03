@@ -5,7 +5,7 @@ bPassword=False
 print("#############################################################################")
 print("Welcome to the Password Checker!")
 print("1. Ensure your password is at least 8 characters long.")
-time.sleep(2)
+time.sleep(1)
 
 print("2. Ensure your password contains both uppercase and lowercase letters.")
 time.sleep(1)
@@ -22,9 +22,11 @@ def check_password_length(password):
     return len(password) >= 8
    
 def check_upper_and_lower(password):
-    upper = any(c.isupper for c in password)
-    lower = any(c.islower for c in password)
+    upper = any(c.isupper() for c in password) #the parentheses is important it calls the function
+    lower = any(c.islower() for c in password)
     return upper and lower # returns true only if upper and lower are true
+
+   
 
 password_input = input("Enter your password:")
 print("Checking password...")
@@ -42,13 +44,6 @@ else:
 
 
 
-
-time.sleep(1)
-print("Password check complete.")
+print("Processing password review...")
 time.sleep(2)
-print("Password Review:")
 
-
-if check_password_length(password_input):
-    bPassword=True
-    print("Your password meets the length requirement.")
